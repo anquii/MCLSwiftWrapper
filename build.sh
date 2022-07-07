@@ -1,6 +1,8 @@
+MCL_VERSION_TAG="v1.61"
+
 BASE_DIR=$PWD
-FRAMEWORK=MCLSwiftWrapper
-CONFIGURATION=Release
+FRAMEWORK="MCLSwiftWrapper"
+CONFIGURATION="Release"
 PROJECT="$BASE_DIR/$FRAMEWORK.xcodeproj"
 
 ARCHIVE_DIR="$BASE_DIR/Archives"
@@ -20,6 +22,7 @@ mkdir -p $RELEASE_DIR
 
 pushd "$BASE_DIR/Submodules/mcl"
 git reset --hard
+git checkout $MCL_VERSION_TAG
 git apply "$BASE_DIR/mcl.patch"
 
 # macosx
@@ -27,30 +30,30 @@ xcodebuild archive                                          \
     -project $PROJECT                                       \
     -scheme $FRAMEWORK                                      \
     -configuration $CONFIGURATION                           \
-    -sdk macosx                                             \
+    -sdk "macosx"                                           \
     -archivePath $ARCHIVE_DIR_MACOSX                        \
-    ONLY_ACTIVE_ARCH=NO                                     \
-    SWIFT_SERIALIZE_DEBUGGING_OPTIONS=NO
+    ONLY_ACTIVE_ARCH="NO"                                   \
+    SWIFT_SERIALIZE_DEBUGGING_OPTIONS="NO"
 
 # iphoneos
 xcodebuild archive                                          \
     -project $PROJECT                                       \
     -scheme $FRAMEWORK                                      \
     -configuration $CONFIGURATION                           \
-    -sdk iphoneos                                           \
+    -sdk "iphoneos"                                         \
     -archivePath $ARCHIVE_DIR_IPHONEOS                      \
-    ONLY_ACTIVE_ARCH=NO                                     \
-    SWIFT_SERIALIZE_DEBUGGING_OPTIONS=NO
+    ONLY_ACTIVE_ARCH="NO"                                   \
+    SWIFT_SERIALIZE_DEBUGGING_OPTIONS="NO"
 
 # iphonesimulator
 xcodebuild archive                                          \
     -project $PROJECT                                       \
     -scheme $FRAMEWORK                                      \
     -configuration $CONFIGURATION                           \
-    -sdk iphonesimulator                                    \
+    -sdk "iphonesimulator"                                  \
     -archivePath $ARCHIVE_DIR_IPHONESIMULATOR               \
-    ONLY_ACTIVE_ARCH=NO                                     \
-    SWIFT_SERIALIZE_DEBUGGING_OPTIONS=NO
+    ONLY_ACTIVE_ARCH="NO"                                   \
+    SWIFT_SERIALIZE_DEBUGGING_OPTIONS="NO"
 
 # bundle
 xcodebuild archive                                                                                          \
@@ -67,6 +70,6 @@ xcodebuild archive                                                              
 # zip
 pushd $RELEASE_DIR
 rm -rf "$FRAMEWORK.zip"
-zip -r "$FRAMEWORK.zip" ./$OUTPUT_FILENAME
+zip --symlinks -r -o "$FRAMEWORK.zip" ./$OUTPUT_FILENAME
 rm -rf ./$OUTPUT_FILENAME
 popd
