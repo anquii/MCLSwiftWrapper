@@ -23,3 +23,7 @@ Add the following line to your `Package.swift` file:
 ## License
 
 `MCLSwiftWrapper` is licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file for more information.
+
+## Acknowledgments
+
+In developing `MCLSwiftWrapper`, [MyEtherWallet](https://github.com/MyEtherWallet)'s [bls-eth-swift](https://github.com/MyEtherWallet/bls-eth-swift) has been used as a reference implementation.
