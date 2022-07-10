@@ -46,17 +46,17 @@ final class MCLSwiftWrapperTests: XCTestCase {
         XCTAssertNotEqual(result, 0)
     }
 
-    func testGivenInit_WithBLS12381CurveType_AndGetCurveType_ThenBLS12381() {
+    func testGivenBLS12381CurveType_WhenInit_AndGetCurveType_ThenBLS12381() {
         mclBn_init(Self.curveType, Self.compilationTime)
         XCTAssertEqual(mclBn_getCurveType(), Self.curveType)
     }
 
-    func testGivenInit_WithBLS12381CurveType_WhenGetETHSerializationMode_ThenDisabled() {
+    func testGivenBLS12381CurveType_WhenInit_AndGetETHSerializationMode_ThenDisabled() {
         mclBn_init(Self.curveType, Self.compilationTime)
         XCTAssertEqual(mclBn_getETHserialization(), 0)
     }
 
-    func testGivenInit_WithBLS12381CurveType_WhenEnableETHSerializationMode_AndGetETHSerializationMode_ThenEnabled() {
+    func testGivenBLS12381CurveType_WhenInit_AndEnableETHSerializationMode_ThenEnabled() {
         let mode = Int32(1)
         mclBn_init(Self.curveType, Self.compilationTime)
         mclBn_setETHserialization(mode)
