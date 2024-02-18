@@ -17,8 +17,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "MCLSwiftWrapper",
-            url: "https://github.com/anquii/MCLSwiftWrapper/releases/download/v1.61.0/MCLSwiftWrapper.zip",
-            checksum: "65a4a804fbe28058d026168068e2b156c35989ef2a61849c7ecf038e3871e151"
+            url: "https://github.com/anquii/MCLSwiftWrapper/releases/download/v1.61.1/MCLSwiftWrapper.zip",
+            checksum: "2b1383c3c716c2c4fef9f89ee3b02784d03be4cd600111b01eeafcce76cba2e1"
         )
     ]
 )

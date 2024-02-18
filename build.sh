@@ -62,7 +62,6 @@ xcodebuild archive                                                              
     -debug-symbols "$ARCHIVE_DIR_MACOSX/dSYMs/$FRAMEWORK.framework.dSYM"                                    \
     -framework "$ARCHIVE_DIR_IPHONEOS/Products/Library/Frameworks/$FRAMEWORK.framework"                     \
     -debug-symbols "$ARCHIVE_DIR_IPHONEOS/dSYMs/$FRAMEWORK.framework.dSYM"                                  \
-    -debug-symbols `find "$ARCHIVE_DIR_IPHONEOS/BCSymbolMaps" -name "*.bcsymbolmap" -type f -maxdepth 1`    \
     -framework "$ARCHIVE_DIR_IPHONESIMULATOR/Products/Library/Frameworks/$FRAMEWORK.framework"              \
     -debug-symbols "$ARCHIVE_DIR_IPHONESIMULATOR/dSYMs/$FRAMEWORK.framework.dSYM"                           \
     -output "$RELEASE_DIR/$OUTPUT_FILENAME"
